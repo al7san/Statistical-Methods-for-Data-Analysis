@@ -15,11 +15,11 @@ We looked at how the **animal type**, **site evaluation**, and **season** are re
 ### 5. **Creating Charts**:
 We created several charts to visualize the data:
 - **Bar charts** to show how many times each animal type was released.
+- ![release by season](images/Animal_launches_by_seson_type.png)
 - **Pie charts** to show the distribution of **Reinforcement** vs. **Resettlement**.
 - ![releas teype](images/release_type.png)
 - **Seasonal charts** to see if the release type changes by season.
-  
-- 
+![release by season](images/Animal_launches_by_seson_type.png)
 
 ### 6. **Building the Predictive Model and Evaluating Performance**:
 We used a **logistic regression** model to predict whether the next release will be **Reinforcement** or **Resettlement**, based on the animal type, site evaluation, and season. After training the model, we evaluated its performance and found that it correctly predicted the release type **74.07%** of the time.
