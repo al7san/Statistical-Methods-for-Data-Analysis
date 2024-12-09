@@ -1,4 +1,4 @@
-# Wildlife Launch Prediction Model
+# The Next Animal Release Type
 
 ### 1. **Problem Definition (Hypothesis)**:
 The goal of this project is to create a model that predicts the next animal release type—whether it will be **Reinforcement** or **Resettlement**. We will base the prediction on three factors: **animal type**, **site evaluation**, and **season** (based on the release date). We focus on animal types that have been released more than 5 times to ensure the model has enough data to make accurate predictions.
