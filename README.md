@@ -8,7 +8,7 @@ We used data from the **National Center for Wildlife Development's open data por
 
 ### 3. **Descriptive Analysis**:
 We analyzed the frequency of releases for each animal type. By looking at the number of releases, we identified which species had more than 5 releases and focused on those. We also examined how **season** and **site evaluation** influenced the release type (Reinforcement or Resettlement).
-![releas teype](images/release_type.png)
+
 ### 4. **Investigating Attribute Relationships**:
 We looked at how the **animal type**, **site evaluation**, and **season** are related to whether the release is a **Reinforcement** or **Resettlement**. This helped us understand which factors play a role in deciding the release type.
 
@@ -16,7 +16,10 @@ We looked at how the **animal type**, **site evaluation**, and **season** are re
 We created several charts to visualize the data:
 - **Bar charts** to show how many times each animal type was released.
 - **Pie charts** to show the distribution of **Reinforcement** vs. **Resettlement**.
+- ![releas teype](images/release_type.png)
 - **Seasonal charts** to see if the release type changes by season.
+  
+- 
 
 ### 6. **Building the Predictive Model and Evaluating Performance**:
 We used a **logistic regression** model to predict whether the next release will be **Reinforcement** or **Resettlement**, based on the animal type, site evaluation, and season. After training the model, we evaluated its performance and found that it correctly predicted the release type **74.07%** of the time.
