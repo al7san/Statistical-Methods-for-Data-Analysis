@@ -8,8 +8,9 @@ library(corrplot)
 library(caret)      
 library(ROSE)      
 
+
 # Load data from the Excel file
-file_path <- "C:/Users/HP/Downloads/wildlife-launch-and-resettlement-dataset.xlsx"
+file_path <- "/wildlife-launch-and-resettlement-dataset.xlsx"
 data <- read_excel(file_path)
 
 # Check if the data is loaded successfully
