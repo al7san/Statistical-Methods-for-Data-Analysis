@@ -8,9 +8,8 @@ library(corrplot)
 library(caret)      
 library(ROSE)      
 
-
 # Load data from the Excel file
-file_path <- "/wildlife-launch-and-resettlement-dataset.xlsx"
+file_path <- "C:/Users/HP/Downloads/wildlife-launch-and-resettlement-dataset.xlsx"
 data <- read_excel(file_path)
 
 # Check if the data is loaded successfully
@@ -52,6 +51,10 @@ data_transformed <- data %>%
     نوع_الاطلاق = ifelse(نوع_الاطلاق == "تعزيز", 1, 0)
   )
 
+type_distribution <- data_transformed %>%
+  group_by(نوع_الاطلاق) %>%
+  summarise(n = n()) %>%
+  mutate(Prediction = نوع_الاطلاق)
 
 type_distribution <- type_distribution %>%
   mutate(Prediction = recode(Prediction, 
@@ -63,12 +66,12 @@ type_distribution <- type_distribution %>%
   mutate(percentage = n / sum(n) * 100)
 
 # Create a pie chart with percentages
-print(ggplot(type_distribution, aes(x = "", y = n, fill = Prediction)) +
+ggplot(type_distribution, aes(x = "", y = n, fill = Prediction)) +
         geom_bar(stat = "identity", width = 1) + 
         coord_polar(theta = "y") +  
         labs(title = "Release Type", fill = "") + 
         theme_void() +  
-        geom_text(aes(label = paste0(round(percentage, 1), "%")), position = position_stack(vjust = 0.5)) )
+        geom_text(aes(label = paste0(round(percentage, 1), "%")), position = position_stack(vjust = 0.5)) 
 
 
 # Calculate correlation matrix
@@ -168,11 +171,11 @@ test_data <- test_data %>%
   mutate(نوع_الاطلاق_binary = ifelse(نوع_الاطلاق == "تعزيز", 1, 0))
 
 # Apply ROSE to balance the majority class samples
-train_data_balanced <- ROSE(نوع_الاطلاق_binary ~ النوع + تقييم_الموقع + فصل, 
-                            data = train_data, seed = 123)$data
+#train_data_balanced <- ROSE(نوع_الاطلاق_binary ~ النوع + تقييم_الموقع + فصل, 
+ #                           data = train_data, seed = 123)$data
 
 # Check the class distribution after applying ROSE
-table(train_data_balanced$نوع_الاطلاق_binary)
+#table(train_data_balanced$نوع_الاطلاق_binary)
 
 # Filter test data to match the types present in the training set
 test_data <- test_data %>% filter(النوع %in% unique(train_data$النوع))
@@ -195,18 +198,6 @@ conf_matrix <- confusionMatrix(
 )
 
 conf_matrix <- as.data.frame(conf_matrix$table)
-
-# Plot confusion matrix using ggplot
-ggplot(conf_matrix, aes(x = Prediction, y = Freq, fill = Reference)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Confusion Matrix Breakdown", 
-       x = "Predicted Label", 
-       y = "Frequency") +
-  theme_minimal() +
-  scale_fill_manual(values = c("lightblue", "lightgreen"),
-                    labels = c("Reinforcement", "Resettlement"))
-
-
 
 # Plot predicted release type distribution by season using test_data
 ggplot(test_data, aes(x = فصل, fill = predictions_class)) +
@@ -233,3 +224,19 @@ conf_matrix_stats <- confusionMatrix(
 
 # Print statistics
 print(conf_matrix_stats)
+
+# تحويل مصفوفة الالتباس إلى إطار بيانات
+conf_matrix_data <- as.data.frame(conf_matrix_stats$table)
+
+# إنشاء Heatmap باستخدام ggplot2
+ggplot(conf_matrix_data, aes(x = Prediction, y = Reference, fill = Freq)) +
+  geom_tile(color = "white") + 
+  scale_fill_gradient(low = "lightblue", high = "darkblue", name = "Frequency") +
+  geom_text(aes(label = Freq), color = "white", size = 5) + 
+  labs(
+    title = "Confusion Matrix Heatmap",
+    x = "Predicted Class",
+    y = "Actual Class"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
