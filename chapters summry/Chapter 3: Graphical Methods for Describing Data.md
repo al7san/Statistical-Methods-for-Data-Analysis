@@ -94,14 +94,22 @@ This chapter focuses on how to visually represent and summarize data using vario
 #### **1. Bar Chart**
 This bar chart shows the frequency of categorical data across four categories (A, B, C, D):
 
-![Bar Chart of Categorical Data](https://via.placeholder.com/500x300?text=Bar+Chart)
+<img src="image/Bar_Chart.png" alt="Bar Chart" width="300"/>
 
 #### **2. Histogram**
 This histogram illustrates the distribution of numerical data:
 
-![Histogram of Numerical Data](https://via.placeholder.com/500x300?text=Histogram)
+<img src="image/Histogram.png" alt="histogram" width="300"/>
+
+#### **3. Boxplot 
+ Compares two groups' distributions:
+ 
+ <img src="image/Boxplot.png" alt="Boxplot" width="300"/>
+
+ #### **4. Time-Series Plot
+ Visualizes cumulative data over time.
+ 
+  <img src="image/Time_Series.png" alt="Time Series" width="300"/>
+
 
 ---
-
-These graphical representations demonstrate the concepts covered in this chapter. Let me know if you need additional examples or further details!
-
