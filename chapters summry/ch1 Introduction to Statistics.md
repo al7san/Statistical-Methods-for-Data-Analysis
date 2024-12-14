@@ -1,4 +1,4 @@
-#Chapter 1 - Introduction to Statistics
+#  Chapter 1 - Introduction to Statistics
 
 ## The Role of Statistics
 Statistics involves **collecting, analyzing, interpreting, and presenting data** to make informed decisions. It helps manage variability in data and draw conclusions about populations based on samples.
