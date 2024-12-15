@@ -39,7 +39,7 @@
 - **Compound Event:** Contains multiple outcomes (e.g., rolling an even number).
 
 - **Complementary Event:** The event $A^c$ represents all outcomes not in $A$.  
-  $P(A^c) = 1 - P(A)$
+  $ P(A^c) = 1 - P(A)$
 
 **Example:**  
 If $P(A) = 0.6$, then $P(A^c) = 1 - 0.6 = 0.4$.
