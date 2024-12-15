@@ -64,8 +64,8 @@ Below is an example of a scatterplot illustrating a relationship between two var
 
 #### **B. Regression Equation**
 - **Line of Best Fit:**
-  $$  y = b_0 + b_1x
-  $$
+  $y = b_0 + b_1x
+  $
   - $b_0$: Intercept ($y$-value when $x = 0$).
   - $b_1$: Slope (change in $y$ for a one-unit change in $x$).
 
