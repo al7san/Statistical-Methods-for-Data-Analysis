@@ -16,6 +16,7 @@ This chapter explains hypothesis testing as a method for making decisions or inf
 #### **B. Errors in Hypothesis Testing**
 1. **Type I Error ($\alpha$):** Rejecting $H_0$ when it is true.
 2. **Type II Error ($\beta$):** Failing to reject $H_0$ when $H_a$ is true.
+<img src="https://www.scribbr.com/wp-content/uploads/2021/01/type-i-and-ii-error-2.png" alt="Type I and Type II Errors" width="400">
 
 - **Example (Medical Test):**
   - **Type I Error**: Diagnosing a healthy person as sick.
